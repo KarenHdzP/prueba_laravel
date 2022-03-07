@@ -15,10 +15,10 @@ class CreateEstudiantesTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre_estudiante');
-            $table->string('apellidos'); 
+            $table->string('nombre_estudiante',100);
+            $table->string('apellidos',100); 
             $table->integer('edad');
-            $table->string('correo_electronico');
+            $table->string('correo_electronico',100)->unique();;
             $table->bigInteger('telefono'); 
             $table->unsignedBigInteger('grupo_id');
             $table->foreign('grupo_id')->references('id')->on('grupos');
